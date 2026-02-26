@@ -11,9 +11,16 @@
     <style>
         /* 페이드인 애니메이션 */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .animate-fade-in {
             animation: fadeIn 0.3s ease-out forwards;
         }
@@ -38,19 +45,23 @@
 <!-- Navigation -->
 <nav class="bg-white border-b sticky top-0 z-10">
     <div class="max-w-3xl mx-auto flex" id="tabs">
-        <button onclick="switchTab('metaphor')" id="tab-metaphor" class="flex-1 py-4 flex items-center justify-center gap-2 font-medium transition-colors border-b-2 border-teal-600 text-teal-700 bg-teal-50/50">
+        <button onclick="switchTab('metaphor')" id="tab-metaphor"
+                class="flex-1 py-4 flex items-center justify-center gap-2 font-medium transition-colors border-b-2 border-teal-600 text-teal-700 bg-teal-50/50">
             <i data-lucide="book-open" class="w-5 h-5"></i>
             <span>개념 비유 사전</span>
         </button>
-        <button onclick="switchTab('blank')" id="tab-blank" class="flex-1 py-4 flex items-center justify-center gap-2 font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50">
+        <button onclick="switchTab('blank')" id="tab-blank"
+                class="flex-1 py-4 flex items-center justify-center gap-2 font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50">
             <i data-lucide="edit-3" class="w-5 h-5"></i>
             <span>백지 복습 (AI 코치)</span>
         </button>
-        <button onclick="switchTab('quiz')" id="tab-quiz" class="flex-1 py-4 flex items-center justify-center gap-2 font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50">
+        <button onclick="switchTab('quiz')" id="tab-quiz"
+                class="flex-1 py-4 flex items-center justify-center gap-2 font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50">
             <i data-lucide="check-square" class="w-5 h-5"></i>
             <span>미니 퀴즈</span>
         </button>
-        <button onclick="switchTab('fillblank')" id="tab-fillblank" class="flex-1 py-4 flex items-center justify-center gap-2 font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50">
+        <button onclick="switchTab('fillblank')" id="tab-fillblank"
+                class="flex-1 py-4 flex items-center justify-center gap-2 font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50">
             <i data-lucide="pen-tool" class="w-5 h-5"></i>
             <span>빈칸 채우기</span>
         </button>
@@ -64,7 +75,8 @@
     <section id="section-metaphor" class="space-y-6">
         <div class="bg-teal-50 border border-teal-200 rounded-lg p-4 mb-6">
             <p class="text-teal-800 text-sm leading-relaxed">
-                💡 <strong>환영합니다!</strong> 자바 콘솔로 <code>public static void main</code>부터 시작해 객체를 <code>new</code>로 만들던 여러분,
+                💡 <strong>환영합니다!</strong> 자바 콘솔로 <code>public static void main</code>부터 시작해 객체를 <code>new</code>로 만들던
+                여러분,
                 이제 스프링의 마법을 배울 차례입니다. 기존에 하던 방식과 스프링을 비교하면서 읽어보세요.
             </p>
         </div>
@@ -88,23 +100,27 @@
             <div class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">어떤 키워드를 복습할까요?</label>
-                    <select id="keyword-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all">
+                    <select id="keyword-select"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all">
                         <!-- 자바스크립트로 옵션 렌더링 됨 -->
                     </select>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">내가 이해한 내용은...</label>
-                    <textarea id="user-text" placeholder="예: 내가 직접 만들지 않고 남이 만들어 놓은걸 쓰는건가요?" class="w-full p-3 border border-gray-300 rounded-lg h-32 resize-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"></textarea>
+                    <textarea id="user-text" placeholder="예: 내가 직접 만들지 않고 남이 만들어 놓은걸 쓰는건가요?"
+                              class="w-full p-3 border border-gray-300 rounded-lg h-32 resize-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"></textarea>
                 </div>
 
-                <button id="submit-feedback-btn" onclick="getAIFeedback()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-lg transition-colors flex justify-center items-center gap-2">
+                <button id="submit-feedback-btn" onclick="getAIFeedback()"
+                        class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-lg transition-colors flex justify-center items-center gap-2">
                     <span>코치님에게 피드백 받기</span>
                     <i data-lucide="chevron-right" class="w-5 h-5"></i>
                 </button>
 
                 <!-- 피드백 결과 영역 -->
-                <div id="feedback-result" class="hidden mt-6 bg-teal-50 border border-teal-200 rounded-lg p-5 animate-fade-in">
+                <div id="feedback-result"
+                     class="hidden mt-6 bg-teal-50 border border-teal-200 rounded-lg p-5 animate-fade-in">
                     <h4 class="font-bold text-teal-800 flex items-center gap-2 mb-2">
                         <i data-lucide="check-circle-2" class="w-5 h-5"></i> AI 코치의 피드백
                     </h4>
@@ -121,7 +137,8 @@
             <!-- 자바스크립트로 퀴즈 렌더링 됨 -->
         </div>
         <!-- 퀴즈 결과 컨테이너 -->
-        <div id="quiz-result" class="hidden bg-white rounded-xl shadow-sm border border-gray-100 p-8 text-center animate-fade-in">
+        <div id="quiz-result"
+             class="hidden bg-white rounded-xl shadow-sm border border-gray-100 p-8 text-center animate-fade-in">
             <div class="w-20 h-20 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i data-lucide="check-square" class="w-10 h-10"></i>
             </div>
@@ -144,7 +161,8 @@
             <!-- 자바스크립트로 렌더링 됨 -->
         </div>
         <!-- 빈칸 결과 컨테이너 -->
-        <div id="fillblank-result" class="hidden bg-white rounded-xl shadow-sm border border-gray-100 p-8 text-center animate-fade-in">
+        <div id="fillblank-result"
+             class="hidden bg-white rounded-xl shadow-sm border border-gray-100 p-8 text-center animate-fade-in">
             <div class="w-20 h-20 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i data-lucide="pen-tool" class="w-10 h-10"></i>
             </div>
@@ -536,12 +554,12 @@
         tabs.forEach(t => {
             // 콘텐츠 보이기/숨기기
             const section = document.getElementById(`section-${t}`);
-            if(t === tabId) section.classList.remove('hidden');
+            if (t === tabId) section.classList.remove('hidden');
             else section.classList.add('hidden');
 
             // 버튼 스타일 변경
             const btn = document.getElementById(`tab-${t}`);
-            if(t === tabId) {
+            if (t === tabId) {
                 btn.classList.remove('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:bg-gray-50');
                 btn.classList.add('border-teal-600', 'text-teal-700', 'bg-teal-50/50');
             } else {
@@ -634,10 +652,10 @@
                 try {
                     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify({
-                            contents: [{ parts: [{ text: userPrompt }] }],
-                            systemInstruction: { parts: [{ text: systemPrompt }] }
+                            contents: [{parts: [{text: userPrompt}]}],
+                            systemInstruction: {parts: [{text: systemPrompt}]}
                         })
                     });
                     if (!response.ok) throw new Error('API Error');
